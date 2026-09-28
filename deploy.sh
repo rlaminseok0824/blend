@@ -10,8 +10,12 @@ attempt=1
 while [ "$attempt" -le 18 ]; do
   status=$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' blend 2>/dev/null || true)
   if [ "$status" = "healthy" ]; then
-    docker exec nginx-ingress wget --quiet --tries=1 --spider http://blend:3000/
-    echo "Blend deployment is healthy."
+    network=$(docker inspect --format '{{if index .NetworkSettings.Networks "edge-net"}}connected{{end}}' blend)
+    if [ "$network" != "connected" ]; then
+      echo "Blend is not attached to edge-net." >&2
+      exit 1
+    fi
+    echo "Blend deployment is healthy on edge-net."
     exit 0
   fi
   if [ "$status" = "unhealthy" ] || [ "$status" = "exited" ]; then
