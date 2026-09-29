@@ -1,5 +1,3 @@
-import { ApiError } from '@/shared/types/api';
-
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://tteokyi.com';
 
 export class ApiException extends Error {
@@ -54,11 +52,15 @@ export async function apiClient<T>(endpoint: string, options: RequestOptions = {
   }
 
   if (!response.ok) {
-    const error: ApiError = await response.json().catch(() => ({
-      code: 5000,
-      message: 'Unknown error',
-    }));
-    throw new ApiException(error.code, error.message);
+    const payload = (await response.json().catch(() => null)) as {
+      code?: unknown;
+      message?: unknown;
+      error?: { code?: unknown; message?: unknown };
+    } | null;
+    const details = payload?.error && typeof payload.error === 'object' ? payload.error : payload;
+    const code = typeof details?.code === 'number' ? details.code : response.status === 403 ? 5004 : 5000;
+    const message = typeof details?.message === 'string' ? details.message : `Request failed (${response.status})`;
+    throw new ApiException(code, message);
   }
 
   if (response.status === 204) {

@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test:admin": "node scripts/admin-static-assertions.mjs",
     "lint": "eslint . --ext .ts,.tsx",
     "format:check": "prettier --check .",
     "format": "prettier --write ."

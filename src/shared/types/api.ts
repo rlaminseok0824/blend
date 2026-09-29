@@ -150,6 +150,7 @@ export type ErrorCode =
   | 5001 // ShouldBindJsonError
   | 5002 // WrongUUIDFormat
   | 5003 // UnAuthorized
+  | 5004 // Forbidden
   | 9999; // DBError
 
 export interface ApiError {
