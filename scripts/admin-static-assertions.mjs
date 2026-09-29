@@ -2,7 +2,8 @@ import { readFileSync } from 'node:fs';
 
 const page = readFileSync('src/app/admin/page.tsx', 'utf8');
 const client = readFileSync('src/shared/api/client.ts', 'utf8');
-const source = `${page}\n${client}`;
+const userMenu = readFileSync('src/domain/auth/components/user-menu.tsx', 'utf8');
+const source = `${page}\n${client}\n${userMenu}`;
 const required = [
   "'/api/v1/user/me'",
   "'/api/v1/admin/resume/status'",
@@ -17,6 +18,9 @@ const required = [
   'payload?.error',
   'response.status === 403 ? 5004 : 5000',
   'aria-pressed',
+  '{user.is_admin && (',
+  'href="/admin"',
+  'ADMIN',
 ];
 for (const fragment of required) {
   if (!source.includes(fragment)) throw new Error(`missing admin assertion: ${fragment}`);

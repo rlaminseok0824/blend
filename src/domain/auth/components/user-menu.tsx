@@ -53,7 +53,16 @@ export function UserMenu() {
         </button>
 
         {isDropdownOpen && (
-          <div className="border-line bg-background absolute right-0 top-full mt-2 w-32 border shadow-lg">
+          <div className="border-line bg-background absolute top-full right-0 mt-2 w-32 border shadow-lg">
+            {user.is_admin && (
+              <Link
+                href="/admin"
+                onClick={() => setIsDropdownOpen(false)}
+                className="text-foreground hover:bg-gray-2 block px-4 py-2 font-mono text-sm transition-colors"
+              >
+                ADMIN
+              </Link>
+            )}
             <Link
               href="/write"
               onClick={() => setIsDropdownOpen(false)}
