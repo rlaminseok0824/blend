@@ -1,0 +1,492 @@
+/* Shared diagram palette: the web page follows the Blend theme, the print sheet overrides to ink on paper. */
+.pf-web {
+  --pf-ink: var(--color-foreground);
+  --pf-paper: var(--color-background);
+  --pf-line: var(--color-line);
+  --pf-muted: var(--color-gray-foreground);
+  --pf-accent: var(--color-primary);
+  --pf-accent-soft: color-mix(in srgb, var(--color-primary) 14%, var(--color-background));
+  --pf-node-bg: color-mix(in srgb, var(--color-gray-2) 55%, var(--color-background));
+}
+
+.pf-print {
+  --pf-ink: #111;
+  --pf-paper: #fff;
+  --pf-line: #444;
+  --pf-muted: #666;
+  --pf-accent: #111;
+  --pf-accent-soft: #f1f1f1;
+  --pf-node-bg: #fff;
+}
+
+.pf-diagram {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  /* --pf-w is the diagram's design width; the web may enlarge it a little, the sheet never does. */
+  max-width: calc(var(--pf-w) * 1.25px);
+  height: auto;
+  font-family: var(--font-body), 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', sans-serif;
+}
+
+.pf-node {
+  fill: var(--pf-node-bg);
+  stroke: var(--pf-ink);
+  stroke-width: 1.2;
+}
+
+.pf-node.pf-tone-accent {
+  fill: var(--pf-accent-soft);
+  stroke: var(--pf-accent);
+  stroke-width: 1.6;
+}
+
+.pf-node.pf-tone-muted {
+  stroke: var(--pf-muted);
+  stroke-dasharray: 4 3;
+}
+
+.pf-node-label {
+  fill: var(--pf-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pf-node-sub {
+  fill: var(--pf-muted);
+  font-size: 10px;
+}
+
+.pf-group {
+  fill: none;
+  stroke: var(--pf-muted);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+}
+
+.pf-group.pf-tone-accent {
+  stroke: var(--pf-accent);
+  stroke-dasharray: none;
+  fill: color-mix(in srgb, var(--pf-accent-soft) 45%, transparent);
+}
+
+.pf-group-label {
+  fill: var(--pf-muted);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.pf-edge {
+  fill: none;
+  stroke: var(--pf-ink);
+  stroke-width: 1.3;
+}
+
+.pf-edge-dashed {
+  stroke-dasharray: 4 3;
+  stroke: var(--pf-muted);
+}
+
+.pf-edge-accent {
+  stroke: var(--pf-accent);
+  stroke-width: 1.6;
+}
+
+.pf-arrow-head {
+  fill: var(--pf-ink);
+}
+
+.pf-edge-label,
+.pf-divider-label {
+  fill: var(--pf-ink);
+  font-size: 10px;
+  paint-order: stroke;
+  stroke: var(--pf-paper);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.pf-note {
+  fill: var(--pf-muted);
+  font-size: 10px;
+}
+
+.pf-lifeline {
+  stroke: var(--pf-muted);
+  stroke-dasharray: 3 4;
+}
+
+.pf-divider {
+  stroke: var(--pf-line);
+  stroke-dasharray: 2 4;
+}
+
+.pf-divider-label {
+  fill: var(--pf-muted);
+  font-weight: 600;
+}
+
+/* Canvas primitives (timelines, concept charts) */
+.pf-c-stroke {
+  fill: none;
+  stroke-width: 1.3;
+}
+
+.pf-c-axis {
+  stroke: var(--pf-ink);
+  stroke-width: 1.2;
+}
+
+.pf-c-grid {
+  stroke: var(--pf-line);
+  stroke-width: 0.6;
+  stroke-dasharray: 2 4;
+  opacity: 0.6;
+}
+
+.pf-c-edge {
+  stroke: var(--pf-ink);
+}
+
+.pf-c-dashed {
+  stroke: var(--pf-muted);
+  stroke-dasharray: 4 3;
+}
+
+.pf-c-accent {
+  stroke: var(--pf-accent);
+  stroke-width: 2.2;
+}
+
+.pf-c-accent-dashed {
+  stroke: var(--pf-accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 4;
+}
+
+.pf-c-muted {
+  stroke: var(--pf-muted);
+  stroke-width: 1.8;
+}
+
+.pf-c-boundary {
+  stroke: var(--pf-ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 3;
+}
+
+.pf-c-fill.pf-c-node {
+  fill: var(--pf-node-bg);
+  stroke: var(--pf-ink);
+  stroke-width: 1.2;
+}
+
+.pf-c-fill.pf-c-accent {
+  fill: var(--pf-accent-soft);
+  stroke: var(--pf-accent);
+  stroke-width: 1.6;
+}
+
+.pf-c-fill.pf-c-muted {
+  fill: var(--pf-node-bg);
+  stroke: var(--pf-muted);
+  stroke-dasharray: 4 3;
+}
+
+.pf-c-band {
+  fill: color-mix(in srgb, var(--pf-ink) 5%, transparent);
+  stroke: none;
+}
+
+.pf-c-band-accent {
+  fill: color-mix(in srgb, var(--pf-accent) 16%, transparent);
+  stroke: none;
+}
+
+.pf-c-band-muted {
+  fill: color-mix(in srgb, var(--pf-muted) 18%, transparent);
+  stroke: none;
+}
+
+.pf-c-dot {
+  fill: var(--pf-ink);
+}
+
+.pf-c-dot-accent {
+  fill: var(--pf-accent);
+}
+
+.pf-c-dot-muted {
+  fill: var(--pf-paper);
+  stroke: var(--pf-ink);
+  stroke-width: 1.4;
+}
+
+.pf-c-text {
+  font-size: 11px;
+  fill: var(--pf-ink);
+}
+
+.pf-c-text-strong {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.pf-c-text-sub {
+  font-size: 10px;
+  fill: var(--pf-muted);
+}
+
+.pf-c-text-accent {
+  fill: var(--pf-accent);
+  font-weight: 700;
+}
+
+.pf-c-text-muted {
+  fill: var(--pf-muted);
+}
+
+/* ---------- A4 print sheet (matches the existing PDF portfolio look) ---------- */
+body:has(.pf-print) {
+  background: #e9e9e9;
+}
+
+.pf-print .pf-diagram {
+  max-width: calc(var(--pf-w) * 1px);
+}
+
+.pf-sheet h1,
+.pf-sheet h2,
+.pf-sheet h3,
+.pf-sheet b,
+.pf-sheet strong {
+  font-weight: 700;
+}
+
+.pf-sheet ul {
+  list-style: disc;
+}
+
+.pf-print {
+  background: #e9e9e9;
+  color: #111;
+  font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', Arial, sans-serif;
+  padding: 24px 0;
+  word-break: keep-all;
+}
+
+.pf-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 14mm 15mm 16mm;
+  background: #fff;
+  box-shadow: 0 8px 28px #00000014;
+  font-size: 9.6pt;
+  line-height: 1.62;
+}
+
+.pf-sheet-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 8.5pt;
+  color: #777;
+  margin-bottom: 6mm;
+}
+
+.pf-sheet-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid #bdbdbd;
+  padding-bottom: 6px;
+}
+
+.pf-sheet-company strong {
+  font-size: 17pt;
+  letter-spacing: -0.03em;
+}
+
+.pf-sheet-company em {
+  font-style: normal;
+  color: #777;
+  font-weight: 600;
+  font-size: 10.5pt;
+  margin-left: 6px;
+}
+
+.pf-sheet-company time {
+  font-size: 9pt;
+  white-space: nowrap;
+}
+
+.pf-sheet h1 {
+  font-size: 15.5pt;
+  line-height: 1.35;
+  margin: 12px 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.pf-sheet-project {
+  margin: 12px 0 -8px;
+  font-size: 8.5pt;
+  color: #666;
+  font-weight: 600;
+}
+
+.pf-sheet-glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 18px;
+  margin: 0;
+}
+
+.pf-sheet-glossary div {
+  border-left: 2px solid #ccc;
+  padding-left: 8px;
+}
+
+.pf-sheet-glossary dt {
+  font-weight: 700;
+}
+
+.pf-sheet-glossary dd {
+  margin: 0;
+}
+
+.pf-sheet-summary {
+  margin: 0 0 6px;
+}
+
+.pf-sheet-stack {
+  color: #666;
+  font-size: 8.8pt;
+  margin: 0 0 10px;
+}
+
+.pf-sheet-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1.5px solid #111;
+  border-bottom: 1px solid #d0d0d0;
+  margin: 0 0 14px;
+}
+
+.pf-sheet-metrics div {
+  padding: 7px 8px 6px 0;
+}
+
+.pf-sheet-metrics b {
+  display: block;
+  font-size: 14pt;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.pf-sheet-metrics span {
+  font-size: 8pt;
+  color: #555;
+}
+
+.pf-sheet h2 {
+  font-size: 11.5pt;
+  margin: 16px 0 6px;
+  padding-left: 7px;
+  border-left: 3px solid #111;
+  line-height: 1.25;
+  break-after: avoid;
+}
+
+.pf-sheet ul {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.pf-sheet li {
+  margin: 4px 0;
+}
+
+.pf-sheet li > b:first-child {
+  margin-right: 2px;
+}
+
+.pf-sheet figure {
+  margin: 8px 0 10px;
+  break-inside: avoid;
+}
+
+.pf-sheet figure .pf-diagram {
+  max-height: 120mm;
+}
+
+.pf-sheet figcaption {
+  font-size: 7.8pt;
+  color: #666;
+  margin-top: 3px;
+}
+
+.pf-sheet-step {
+  break-inside: avoid;
+  margin: 7px 0;
+}
+
+.pf-sheet-step h3 {
+  font-size: 10pt;
+  margin: 0 0 1px;
+}
+
+.pf-sheet-step p {
+  margin: 0;
+}
+
+.pf-sheet-step ul {
+  margin-top: 2px;
+}
+
+.pf-sheet ul.pf-sheet-sub {
+  list-style: circle;
+  margin: 2px 0 4px;
+}
+
+.pf-sheet-sub li {
+  margin: 2px 0;
+}
+
+.pf-sheet-note {
+  font-size: 7.8pt;
+  color: #777;
+  margin-top: 10px;
+}
+
+@media print {
+  /* Page margins live on @page so content that flows onto a second page keeps its padding. */
+  @page {
+    size: A4;
+    margin: 14mm 15mm 16mm;
+  }
+
+  body:has(.pf-print),
+  .pf-print {
+    background: #fff;
+    padding: 0;
+  }
+
+  .pf-sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    break-after: page;
+  }
+
+  .pf-sheet:last-child {
+    break-after: auto;
+  }
+
+  .pf-print-toolbar {
+    display: none !important;
+  }
+}
