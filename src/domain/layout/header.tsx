@@ -1,11 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Logo from '@/shared/icons/logo';
 import { UserMenu } from '@/domain/auth/components/user-menu';
 import { ThemeToggle } from './components/theme-toggle';
+import { isPortfolioPrintPath } from './print-path';
 
 export default function Header() {
+  const pathname = usePathname();
+
+  // Portfolio print views render a bare A4 sheet for PDF export.
+  if (isPortfolioPrintPath(pathname)) {
+    return null;
+  }
+
   return (
     <header className="bg-background border-line sticky top-0 z-50 border-b">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">

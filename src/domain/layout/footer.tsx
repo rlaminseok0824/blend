@@ -3,6 +3,7 @@
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { isPortfolioPrintPath } from './print-path';
 
 const HIDDEN_PATHS = ['/write', '/settings'];
 
@@ -10,7 +11,7 @@ export default function Footer() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
-  if (HIDDEN_PATHS.some((path) => pathname.startsWith(path))) {
+  if (HIDDEN_PATHS.some((path) => pathname.startsWith(path)) || isPortfolioPrintPath(pathname)) {
     return null;
   }
 

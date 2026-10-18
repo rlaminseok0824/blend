@@ -1,0 +1,298 @@
+[
+  {
+    "t": "text",
+    "x": 20,
+    "y": 18,
+    "text": "단순 분배",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 20,
+    "y": 36,
+    "text": "각 Shipment에서 1개씩 차감",
+    "cls": "sub",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 20,
+    "y": 69.0,
+    "text": "A · 창고 1",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 90,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M96,64 L106,74 M106,64 L96,74",
+    "cls": "accent"
+  },
+  {
+    "t": "rect",
+    "x": 116,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "rect",
+    "x": 142,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "text",
+    "x": 176,
+    "y": 69.0,
+    "text": "부분 취소",
+    "cls": "sub",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 20,
+    "y": 113.0,
+    "text": "B · 창고 2",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 90,
+    "y": 102,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M96,108 L106,118 M106,108 L96,118",
+    "cls": "accent"
+  },
+  {
+    "t": "rect",
+    "x": 116,
+    "y": 102,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "text",
+    "x": 176,
+    "y": 113.0,
+    "text": "부분 취소",
+    "cls": "sub",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 20,
+    "y": 157.0,
+    "text": "C · 창고 3",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 90,
+    "y": 146,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M96,152 L106,162 M106,152 L96,162",
+    "cls": "accent"
+  },
+  {
+    "t": "text",
+    "x": 176,
+    "y": 157.0,
+    "text": "전량 취소",
+    "cls": "accent",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 20,
+    "y": 200,
+    "text": "수정되는 Shipment 3개",
+    "cls": "muted",
+    "anchor": "start"
+  },
+  {
+    "t": "line",
+    "x1": 320,
+    "y1": 10,
+    "x2": 320,
+    "y2": 210,
+    "cls": "grid"
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 18,
+    "text": "Knapsack",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 36,
+    "text": "취소 수량 = 용량, Shipment 수량 = 무게",
+    "cls": "sub",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 69.0,
+    "text": "A · 창고 1",
+    "cls": "strong",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 410,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M416,64 L426,74 M426,64 L416,74",
+    "cls": "accent"
+  },
+  {
+    "t": "rect",
+    "x": 436,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M442,64 L452,74 M452,64 L442,74",
+    "cls": "accent"
+  },
+  {
+    "t": "rect",
+    "x": 462,
+    "y": 58,
+    "w": 22,
+    "h": 22,
+    "cls": "accent",
+    "rx": 3
+  },
+  {
+    "t": "path",
+    "d": "M468,64 L478,74 M478,64 L468,74",
+    "cls": "accent"
+  },
+  {
+    "t": "text",
+    "x": 496,
+    "y": 69.0,
+    "text": "전량 취소",
+    "cls": "accent",
+    "anchor": "start"
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 113.0,
+    "text": "B · 창고 2",
+    "cls": "muted",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 410,
+    "y": 102,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "rect",
+    "x": 436,
+    "y": 102,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 157.0,
+    "text": "C · 창고 3",
+    "cls": "muted",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 410,
+    "y": 146,
+    "w": 22,
+    "h": 22,
+    "cls": "node",
+    "rx": 3
+  },
+  {
+    "t": "text",
+    "x": 340,
+    "y": 200,
+    "text": "수정되는 Shipment 1개 · 전량 취소",
+    "cls": "accent",
+    "anchor": "start"
+  },
+  {
+    "t": "rect",
+    "x": 556,
+    "y": 12,
+    "w": 12,
+    "h": 12,
+    "cls": "accent",
+    "rx": 2
+  },
+  {
+    "t": "path",
+    "d": "M559,15 L565,21 M565,15 L559,21",
+    "cls": "accent"
+  },
+  {
+    "t": "text",
+    "x": 574,
+    "y": 18,
+    "text": "취소 수량",
+    "cls": "sub",
+    "anchor": "start"
+  }
+]
